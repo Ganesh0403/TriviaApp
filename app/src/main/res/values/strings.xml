@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Trivia</string>
+    <string name="title">Quiz</string>
+    <string name="questions">0/100</string>
+    <string name="false_text">False</string>
+    <string name="true_text">True</string>
+    <string name="todos">TODO</string>
+    <string name="todo">TODO</string>
+    <string name="noQuestion">Question is going to come</string>
+    <string name = "correct">That\'s Correct</string>
+    <string name = "wrong">That\'s Wrong</string>
+    <string name="score_0">Score : 0</string>
+    <string name="highscore_0">Highscore : 0</string>
+    <string name="reset">Reset</string>
+</resources>
