@@ -1,5 +1,6 @@
 package com.example.trivia;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton previousButton;
     private TextView scoreText;
     private TextView highScore;
-    private Button resetButton;
+    private Button resetButton, shareButton;
     private List<Question> questionList;
     private int scoreCounter = 0;
     private Score score;
@@ -60,12 +61,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         questionText = findViewById(R.id.questions);
         noOfQuestion = findViewById(R.id.question_text);
         resetButton = findViewById(R.id.reset_button);
+        shareButton = findViewById(R.id.share_button);
 
         nextButton.setOnClickListener(this);
         previousButton.setOnClickListener(this);
         falseButton.setOnClickListener(this);
         trueButton.setOnClickListener(this);
         resetButton.setOnClickListener(this);
+        shareButton.setOnClickListener(this);
 
         highScore.setText(MessageFormat.format("HighScore : {0}", String.valueOf(prefs.getHighScore())));
 
@@ -109,7 +112,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.reset_button:
                 reset_all();
                 break;
+            case R.id.share_button:
+                shareScore();
+                break;
         }
+    }
+
+    private void shareScore() {
+        String message = "My current score is "+score.getScore()+" and "+"My highest score is "+prefs.getHighScore();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "I am Playing Trivia, You want to play?");
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        startActivity(intent);
     }
 
     private void reset_all() {

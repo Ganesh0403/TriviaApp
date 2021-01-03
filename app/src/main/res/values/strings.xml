@@ -12,4 +12,5 @@
     <string name="score_0">Score : 0</string>
     <string name="highscore_0">Highscore : 0</string>
     <string name="reset">Reset</string>
+    <string name="share">Share</string>
 </resources>
